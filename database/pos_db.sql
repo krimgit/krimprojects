@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 10, 2026 at 02:17 PM
+-- Generation Time: Oct 10, 2026 at 02:21 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -46,6 +46,30 @@ INSERT INTO `customers` (`id`, `full_name`, `email`, `phone`, `created_at`) VALU
 (4, 'Noah Garcia', 'noah.garcia@example.com', '+63 920 555 0104', '2026-10-01 09:45:00'),
 (5, 'Isla Mendoza', 'isla.mendoza@example.com', '+63 921 555 0105', '2026-10-01 10:00:00');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(50) NOT NULL,
+  `full_name` varchar(100) NOT NULL,
+  `created_at` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `full_name`, `created_at`) VALUES
+(1, 'jdelacruz', 'Jordan Dela Cruz', '2026-10-01 08:00:00'),
+(2, 'srivera', 'Sam Rivera', '2026-10-01 08:10:00'),
+(3, 'tlim', 'Taylor Lim', '2026-10-01 08:20:00'),
+(4, 'mcastro', 'Morgan Castro', '2026-10-01 08:30:00'),
+(5, 'acortez', 'Alex Cortez', '2026-10-01 08:40:00');
+
 --
 -- Indexes for dumped tables
 --
@@ -57,6 +81,13 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `username` (`username`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -64,6 +95,12 @@ ALTER TABLE `customers`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
